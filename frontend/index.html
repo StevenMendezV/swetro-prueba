@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prueba técnica</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> <!--Enlace iconos Boxicons-->
+  </head>
+  <body>
+    <!-- <div class="searchBarContainer">
+      <div>
+        <label for="barraBusqueda" class="searchLabel">Búscar registros por ID del usuario</label>
+      </div>
+      <div>
+        <input type="text" id="barraBusqueda" placeholder="Buscar..." class="searchInput"/>
+      </div>
+    </div> -->
+    <header>
+      <div id="logo">
+        <img src="https://swetro.com/_astro/logo.769f5707_1pxHe4.svg" alt="Logo" />
+        <!-- Reemplaza 'logo.png' con la ruta de tu imagen de logo -->
+      </div>
+      <h1>Prueba de habilidades técnicas</h1>
+    </header>
+    <div class="input-wrapper">
+      <p>Selecciona el archivo csv: </p>
+      <label for="archivoDeDatos" class="btn btn-primary">Selecciona un archivo</label>
+      <input type="file" id="archivoDeDatos" class="input-file" />
+    </div>
+    <p>Elige 1 de las 2 opciones: </p>
+    <button class="btn btn-primary anormal" onclick="traerDatosAnormales()">Traer Datos Anormales</button>
+    <button class="btn btn-primary normal" onclick="traerDatosNormales()">Traer Datos Normales</button>
+    <div id="spinner" style="display:none;">
+      <div class="loader"></div>
+    </div>    
+    <div class= "search-bar" id="search-bar">
+      <label for="barraBusqueda">filtrar resultados por UserId: </label>
+      <i class='bx bx-search'></i>
+      <input type="text" id="barraBusqueda" placeholder="Buscar..." />
+    </div>
+    <section class="registers">
+      <table id="tablaDatos">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>user id</th>
+            <th>inicio de actividad (seg)</th>
+            <th>duracion de actividad (seg)</th>
+            <th>distancia (m)</th>
+            <th>pasos</th>
+            <th>velocidad promedio (m/s)</th>
+            <th>ritmo promedio (min/km)</th>
+            <th>ganancia total elevación en metros</th>
+            <th>frecuencia cardiaca promedia latidos/min</th>
+          </tr>
+        </thead>
+        <tbody id="data">
+          <!-- <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+          </tr> -->
+        </tbody>
+      </table>
+    </section>
+    <!-- <input type="file" id="archivoDeDatos" />
+    <button onclick="traerDatosAnormales()">Traer Datos</button>
+    <button onclick="traerDatosNormales()">Traer Datos Normales</button> -->
+    
+    
+    <script src="main.js"></script>
+  </body>
+</html>

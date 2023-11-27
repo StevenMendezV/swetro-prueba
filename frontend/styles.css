@@ -1,0 +1,226 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto";
+  font-weight: 400;
+}
+
+
+
+th {
+  padding: 5px;
+}
+
+tr {
+  text-align: center;
+}
+
+.registers {
+  background-color: #007bff;
+  margin: 20px;
+  border-radius: 5px;
+}
+
+/* Estilo para la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    
+  }
+  
+  /* Estilo para las celdas de la tabla */
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  /* Estilo para hacer sticky el encabezado de la tabla */
+thead {
+    border-start-start-radius: 5px;
+}
+
+  thead th {
+    position: sticky;
+    top: 0;
+    background-color: #007bff;
+    z-index: 10;
+    
+  }
+  
+  /* Asegúrate de que el contenedor de la tabla tenga un alto definido y esté desbordado */
+  .register {
+    max-height: 400px; /* O la altura que prefieras */
+    overflow-y: auto;
+    border-radius: 5px;
+    
+  }
+
+tbody {
+  background-color: #ccc;
+}
+
+.searchBarContainer {
+  /* background-color: green; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* tbody>tr {
+    border-radius: 5px;
+    
+} */
+
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+#logo img {
+    height: 30px; /* Ajusta esto según el tamaño de tu logo */
+    margin-left: 70px;
+}
+
+.search-bar {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #f8f8f8;
+    width: 100%; /* Ajusta esto según tus necesidades */
+    display: grid;
+    grid-template-columns: 220px 40px 1fr;
+    justify-content: left;
+    align-items: center;
+}
+
+.search-bar label {
+    justify-self: center;
+    color: #a19f9f;
+}
+
+.search-bar i {
+    justify-self: end;
+    color: #a19f9f;
+}
+
+#search-bar input[type="text"] {
+    width: 50%;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+h1 {
+    margin: 0;
+    margin-right: 100px;
+    font-size: 24px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    font-size: 13px;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3; /* Color más oscuro para el efecto hover */
+  }
+  
+  .input-file {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+  }
+  
+  .input-wrapper {
+    position: relative;
+  }
+  
+  .input-wrapper label {
+    cursor: pointer;
+    /* Estilos adicionales para que coincida con el botón, si es necesario */
+  }
+  
+  /* Cuando el archivo ha sido seleccionado */
+  .input-wrapper label:after {
+    content: attr(data-file-name);
+    display: inline-block;
+    padding-left: 10px;
+    font-style: italic;
+    background-color: #aaa;
+    color: #aaa;
+  }
+  
+  /* Estilo de enfoque para accesibilidad */
+  .input-file:focus + label,
+  .btn:focus {
+    outline: 1px dotted #000;
+    outline: -webkit-focus-ring-color auto 5px;
+  }
+
+  p {
+    font-size: 15px;
+    font-weight: 600;
+    margin-left: 8px;
+    margin-top: 5px;
+  }
+  
+
+  .anormal:hover {
+    background-color: rgb(238, 124, 124);
+  }
+
+  .normal:hover {
+    background-color: rgb(126, 177, 113);
+  }
+  
+  #spinner {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Asegúrate de que esté sobre otros elementos */
+  }
+  
+  .loader {
+    border: 5px solid #faf7f7; /* Color del fondo */
+    border-top: 5px solid #57f852; /* Color del spinner */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
