@@ -7,21 +7,6 @@ def retornar_todos_los_datos(df):
     return df.to_json(orient='records')
 
 
-# def identificar_anomalias(df):
-#     # Definir criterios de anomalía basados en percentiles
-#     velocidad_alta = df['AverageSpeedInMetersPerSecond'] > df['AverageSpeedInMetersPerSecond'].quantile(0.99)
-#     ritmo_bajo = df['AveragePaceInMinutesPerKilometer'] < df['AveragePaceInMinutesPerKilometer'].quantile(0.01)
-#     frecuencia_cardiaca_baja = df['AverageHeartRateInBeatsPerMinute'] < df['AverageHeartRateInBeatsPerMinute'].quantile(0.01)
-#     frecuencia_cardiaca_alta = df['AverageHeartRateInBeatsPerMinute'] > df['AverageHeartRateInBeatsPerMinute'].quantile(0.99)
-#     elevacion_alta = df['TotalElevationGainInMeters'] > df['TotalElevationGainInMeters'].quantile(0.99)
-
-#     # Filtrar actividades anómalas
-#     actividades_anomalas = df[velocidad_alta | ritmo_bajo | frecuencia_cardiaca_baja | frecuencia_cardiaca_alta | elevacion_alta]
-
-#     # Seleccionar 10 registros de actividades anómalas
-#     actividades_anomalas_muestra = actividades_anomalas.sample(10, random_state=1)
-#     return actividades_anomalas_muestra
-
 def identificar_anomalias(df):
     # Definir criterios de anomalía basados en percentiles
     ceros_anomalias = (df == 0)
@@ -78,10 +63,7 @@ def identificar_anomalias(df):
     # Filtrar actividades anómalas
     actividades_anomalas = df[tiempo_alto | velocidad_alta | ritmo_bajo | frecuencia_cardiaca_baja | frecuencia_cardiaca_alta | elevacion_alta]
 
-    # Seleccionar 10 registros de actividades anómalas
-    # actividades_anomalas_muestra = actividades_anomalas.sample(10, random_state=1)
     return actividades_anomalas
-
 
 
 def identificar_registros_normales(df):
@@ -96,8 +78,6 @@ def identificar_registros_normales(df):
     # Filtrar para obtener solo actividades normales
     actividades_normales = df[tiempo_normal & velocidad_normal & ritmo_normal & frecuencia_cardiaca_normal & elevacion_normal & ~ceros_anomalias['DurationInSeconds'] & ~ceros_anomalias['AverageSpeedInMetersPerSecond'] & ~ceros_anomalias['AveragePaceInMinutesPerKilometer'] & ~ceros_anomalias['AverageHeartRateInBeatsPerMinute'] & ~ceros_anomalias['TotalElevationGainInMeters']]
 
-    # Seleccionar 10 registros de actividades normales
-    # actividades_normales_muestra = actividades_normales.sample(10, random_state=1)
     return actividades_normales
 
 
@@ -153,62 +133,3 @@ def analyze_data_normal():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-
-
-# CODIGO QUE IMPRIME 10 VALORES EN CONSOLA ---------------------------------------
-# import pandas as pd
-
-# def identificar_anomalias(df):
-#     # Definir criterios de anomalía basados en percentiles
-#     velocidad_alta = df['AverageSpeedInMetersPerSecond'] > df['AverageSpeedInMetersPerSecond'].quantile(0.99)
-#     ritmo_bajo = df['AveragePaceInMinutesPerKilometer'] < df['AveragePaceInMinutesPerKilometer'].quantile(0.01)
-#     frecuencia_cardiaca_baja = df['AverageHeartRateInBeatsPerMinute'] < df['AverageHeartRateInBeatsPerMinute'].quantile(0.01)
-#     frecuencia_cardiaca_alta = df['AverageHeartRateInBeatsPerMinute'] > df['AverageHeartRateInBeatsPerMinute'].quantile(0.99)
-#     elevacion_alta = df['TotalElevationGainInMeters'] > df['TotalElevationGainInMeters'].quantile(0.99)
-
-#     # Filtrar actividades anómalas
-#     actividades_anomalas = df[velocidad_alta | ritmo_bajo | frecuencia_cardiaca_baja | frecuencia_cardiaca_alta | elevacion_alta]
-
-#     # Seleccionar 10 registros de actividades anómalas
-#     actividades_anomalas_muestra = actividades_anomalas.sample(10, random_state=1)
-#     return actividades_anomalas_muestra
-
-# # Ruta del archivo CSV
-# ruta_archivo = 'tu_ruta_al_archivo.csv'  # Reemplaza esto con la ruta real de tu archivo
-
-# # Leer el archivo CSV
-# df = pd.read_csv('./../datall.csv')
-
-# # Identificar y mostrar anomalías
-# anomalias = identificar_anomalias(df)
-# print(anomalias)
-
-
-# CODIO QUE IMPRIME ACTIVIDADES NORMALES -----------------
-# import pandas as pd
-
-# def identificar_registros_normales(df):
-#     # Definir criterios de anomalía basados en percentiles
-#     velocidad_normal = df['AverageSpeedInMetersPerSecond'] <= df['AverageSpeedInMetersPerSecond'].quantile(0.99)
-#     ritmo_normal = df['AveragePaceInMinutesPerKilometer'] >= df['AveragePaceInMinutesPerKilometer'].quantile(0.01)
-#     frecuencia_cardiaca_normal = (df['AverageHeartRateInBeatsPerMinute'] >= df['AverageHeartRateInBeatsPerMinute'].quantile(0.01)) & (df['AverageHeartRateInBeatsPerMinute'] <= df['AverageHeartRateInBeatsPerMinute'].quantile(0.99))
-#     elevacion_normal = df['TotalElevationGainInMeters'] <= df['TotalElevationGainInMeters'].quantile(0.99)
-
-#     # Filtrar para obtener solo actividades normales
-#     actividades_normales = df[velocidad_normal & ritmo_normal & frecuencia_cardiaca_normal & elevacion_normal]
-
-#     # Seleccionar 10 registros de actividades normales
-#     actividades_normales_muestra = actividades_normales.sample(10, random_state=1)
-#     return actividades_normales_muestra
-
-# # Ruta del archivo CSV
-# ruta_archivo = 'tu_ruta_al_archivo.csv'  # Reemplaza esto con la ruta real de tu archivo
-
-# # Leer el archivo CSV
-# df = pd.read_csv('./../datall.csv')
-
-# # Identificar y mostrar registros normales
-# registros_normales = identificar_registros_normales(df)
-# print(registros_normales)
-
