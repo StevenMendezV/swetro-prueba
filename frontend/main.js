@@ -151,9 +151,6 @@ function traerDatosAnormales() {
             }
           }
           ocultarSpinner()
-          // const celdaUserId = fila.insertCell()
-          // celdaUserId.textContent = registro.UserId
-          // celdaUserId.style.backgroundColor = 'red'
         })
         console.log("Documento analizado exitosamente:", objetoJsonData)
       })
@@ -253,10 +250,6 @@ function traerDatosNormales() {
           celdaAverageHeartRateInBeatsPerMinute.style.backgroundColor =
             "rgb(126, 177, 113)"
           ocultarSpinner()
-
-          // const celdaUserId = fila.insertCell()
-          // celdaUserId.textContent = registro.UserId
-          // celdaUserId.style.backgroundColor = 'red'
         })
         console.log("Documento analizado exitosamente:", objetoJsonData)
       })
