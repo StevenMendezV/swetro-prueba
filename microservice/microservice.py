@@ -17,9 +17,6 @@ def identificar_anomalias(df):
     frecuencia_cardiaca_alta = df['AverageHeartRateInBeatsPerMinute'] > df['AverageHeartRateInBeatsPerMinute'].quantile(0.99)
     elevacion_alta = df['TotalElevationGainInMeters'] > df['TotalElevationGainInMeters'].quantile(0.99)
 
-    # valor_maximo_columna = df["columna"] > (df["columna"].quantile(q = 0.75) + 1.5 * (df["columna"].quantile(q = 0.75) - df["columna"].quantile(q = 0.25)))
-    # valor_minimo_columna = df["columna"] < (df["columna"].quantile(q = 0.25) - 1.5 * (df["columna"].quantile(q = 0.75) - df["columna"].quantile(q = 0.25)))
-
     # Crear nuevas columnas para marcar los valores anormales
     df['TiempoCero'] = ceros_anomalias['DurationInSeconds']
     df['VelocidadCero'] = ceros_anomalias['AverageSpeedInMetersPerSecond']
@@ -67,7 +64,7 @@ def identificar_anomalias(df):
 
 
 def identificar_registros_normales(df):
-    # Definir criterios de anomalía basados en percentiles
+    # Definiremos criterios de anomalías basados en percentiles
     ceros_anomalias = (df == 0)
     tiempo_normal = df['DurationInSeconds'] <= df['DurationInSeconds'].quantile(0.99)
     velocidad_normal = df['AverageSpeedInMetersPerSecond'] <= df['AverageSpeedInMetersPerSecond'].quantile(0.99)
@@ -126,7 +123,7 @@ def analyze_data_normal():
 
     if file:
         dfn = pd.read_csv(file)
-        # Identificar anomalías
+        # Identificar registros normales
         anomalias = identificar_registros_normales(dfn)
         # Retorna los resultados del análisis
         return jsonify({"message": "Análisis completado", "data": anomalias.to_json(orient='records')})

@@ -8,8 +8,6 @@
   font-weight: 400;
 }
 
-
-
 th {
   padding: 5px;
 }
@@ -52,7 +50,6 @@ thead {
     
   }
   
-  /* Asegúrate de que el contenedor de la tabla tenga un alto definido y esté desbordado */
   .register {
     max-height: 400px; /* O la altura que prefieras */
     overflow-y: auto;
@@ -73,12 +70,6 @@ tbody {
   margin-top: 10px;
 }
 
-/* tbody>tr {
-    border-radius: 5px;
-    
-} */
-
-
 header {
     display: flex;
     align-items: center;
@@ -89,7 +80,7 @@ header {
 }
 
 #logo img {
-    height: 30px; /* Ajusta esto según el tamaño de tu logo */
+    height: 30px;
     margin-left: 70px;
 }
 
@@ -97,7 +88,7 @@ header {
     padding-top: 10px;
     padding-bottom: 10px;
     background-color: #f8f8f8;
-    width: 100%; /* Ajusta esto según tus necesidades */
+    width: 100%;
     display: grid;
     grid-template-columns: 220px 40px 1fr;
     justify-content: left;
@@ -143,7 +134,7 @@ h1 {
   }
   
   .btn-primary:hover {
-    background-color: #0056b3; /* Color más oscuro para el efecto hover */
+    background-color: #0056b3;
   }
   
   .input-file {
@@ -161,7 +152,6 @@ h1 {
   
   .input-wrapper label {
     cursor: pointer;
-    /* Estilos adicionales para que coincida con el botón, si es necesario */
   }
   
   /* Cuando el archivo ha sido seleccionado */
@@ -174,7 +164,6 @@ h1 {
     color: #aaa;
   }
   
-  /* Estilo de enfoque para accesibilidad */
   .input-file:focus + label,
   .btn:focus {
     outline: 1px dotted #000;
@@ -207,7 +196,7 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000; /* Asegúrate de que esté sobre otros elementos */
+    z-index: 1000;
   }
   
   .loader {

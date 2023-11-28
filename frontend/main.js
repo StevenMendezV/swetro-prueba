@@ -12,7 +12,7 @@ function traerDatosAnormales() {
   formData.append("file", archivoDeDatos)
 
   let url = `http://localhost:8080/api`
-  // Realiza la solicitud POST al endpoint de creación de imágenes
+  // Realiza la solicitud POST al endpoint
 
   if (archivoDeDatos != undefined) {
     fetch(url, {
@@ -29,7 +29,6 @@ function traerDatosAnormales() {
       .then((data) => {
         const respuestaCompleta = JSON.parse(data)
         const objetoJsonData = JSON.parse(respuestaCompleta.data)
-        // Manipula la respuesta del servidor (data) según tus necesidades
 
         objetoJsonData.forEach((registro) => {
           const fila = tabla.insertRow()
@@ -175,7 +174,7 @@ function traerDatosNormales() {
   formDataNormal.append("file", archivoDeDatos)
 
   let url = `http://localhost:8080/api/normal`
-  // Realiza la solicitud POST al endpoint de creación de imágenes
+  // Realiza la solicitud POST al endpoint 
   if (archivoDeDatos != undefined) {
     fetch(url, {
       method: "POST",
@@ -191,7 +190,6 @@ function traerDatosNormales() {
       .then((data) => {
         const respuestaCompleta = JSON.parse(data)
         const objetoJsonData = JSON.parse(respuestaCompleta.data)
-        // Manipula la respuesta del servidor (data) según tus necesidades
         objetoJsonData.forEach((registro) => {
           const fila = tabla.insertRow()
 
@@ -264,14 +262,14 @@ function traerDatosNormales() {
 document
   .getElementById("barraBusqueda")
   .addEventListener("keyup", function (event) {
-    let terminoBusqueda = event.target.value // El término de búsqueda como cadena
+    let terminoBusqueda = event.target.value // El término de búsqueda como como string
     let filas = document
       .getElementById("tablaDatos")
       .getElementsByTagName("tbody")[0]
       .getElementsByTagName("tr")
 
     for (let i = 0; i < filas.length; i++) {
-      let celdaUserId = filas[i].getElementsByTagName("td")[1] // Selecciona la primera celda (UserId)
+      let celdaUserId = filas[i].getElementsByTagName("td")[1] // Selecciona UserId
       if (celdaUserId) {
         // Compara el UserId de la fila con el término de búsqueda
         if (
