@@ -1,5 +1,9 @@
 # Prueba técnica - Steven Mendez
 
+## Demo análisis de datos Swetro app 🎥
+https://github.com/StevenMendezV/swetro-prueba/assets/89426613/eec48fd2-ae1c-44e4-bd90-d41033fc2e4e
+
+
 Para la realización de esta prueba técnica he optado por la implementación de tecnologías como:
 - **Para el frontend:** HTML, CSS y JavaScript
 - **Para el backend:** Java con SpringBoot - Python con Flask y Pandas.
