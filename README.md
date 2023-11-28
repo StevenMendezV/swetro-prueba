@@ -1,10 +1,11 @@
 # Prueba técnica - Steven Mendez
 
 Para la realización de esta prueba técnica he optado por la implementación de tecnologías como:
-- **Para el frontend:** Html, Css y JavaScript
-- **Para el backend:** Java con Springboot
-Para el uso, manejo y manipulación de los datos he decidido implementar un microservicio en el lenguaje predilecto para los datos, Python.
-- **Microservicio:** Python con Flask y Pandas
+- **Para el frontend:** HTML, CSS y JavaScript
+- **Para el backend:** Java con SpringBoot - Python con Flask y Pandas.
+
+La arquitectura del backend funciona por medio de un orquestador/intermediario establecido en Java con SpringBoot el cuál recibirá las solicitudes desde el frontend y se comunicacará con un **microservicio**; este a su vez se encuentra **estructurado en en lenguaje Python** por su eficiencia en el manejo de grandes cantidades de datos.
+
 ## Argumento de la solución
 Para determinar la solución a la prueba primero razoné qué campos en la tabla de registros eran críticos y fundamentales a la hora de determinar prácticas tramposas, de los cuales, he determinado los siguientes:
 - Valores en 0
@@ -25,18 +26,25 @@ Al haber evidenciado la presencia de tantos **valores atípicos (aquellos que es
 ### Etapa 1
 El frontend del aplicativo mostrará 3 botones y 1 barra de búsqueda:
 - **Botón de subida de archivo:** Aquí se sube el archivo CSV de los datos respectivamente
-- **Botón de traer datos anormales:** Al clickear en esta opción el usuario podrá traer los datos que presenten anomalís (evidenciando una pantalla de carga mientras se realiza el análisis) y el aplicativo le resaltará específicamente qué datos son anormales, entre los cuales incluirá 0s, valores nulos y demás.
-- **Botón de traer datos normales:** Al clickear en esta opción el usuario podrá traer los datos normales que se establecen dentro del límite lógico permitido (evidenciando una pantalla de carga mientras se realiza el análisis).
+- **Botón de traer datos anormales:** Al clickear en esta opción el usuario podrá traer los datos que presenten anomalías por medio del consumo de unos endpoints (evidenciando una pantalla de carga mientras se realiza el análisis)
+
+    ```let url = `http://localhost:8080/api```
+
+    el aplicativo le resaltará específicamente qué datos son anormales, entre los cuales incluirá 0s, valores nulos y demás.
+- **Botón de traer datos normales:** Al clickear en esta opción el usuario podrá traer los datos normales que se establecen dentro del límite lógico permitido a través de un endpoint (evidenciando una pantalla de carga mientras se realiza el análisis).
+
+    ```let url = `http://localhost:8080/api/normal```
+
 - **Barra de búsqueda:** Aquí se podrá filtrar los datos realizando una búsqueda por medio del id de un usuario en particular para conocer todos sus registros.
 - **Tabla de renderización de datos:** En este apartado se mostrarán los datos obtenidos al realizar la petición.
 ### Etapa 2
-El backend fue estructurado con Java y Springboot, este va a recibir las peticiones del frontend y servirá de orquestador o intermediario para realizar la conexión con un microservicio realizado en python.
+El backend fue estructurado con Java y SpringBoot, este va a recibir las peticiones del frontend y servirá de orquestador o intermediario para realizar la conexión con el microservicio realizado en python.
 - Se ha empleado el uso particular de WebClient, lo último y más recomendado que permite realizar la conexión con algún microservicio en particular.
-- Se realizaron unas configuraciones para el manejo de archivos grandes (máximo 100mb) por cada petición.
+- Se realizaron unas configuraciones para el manejo de archivos grandes (máximo 100MB) por cada petición.
 ### Etapa 3
 El microservicio es lo que le da vida al aplicativo realizando la lógica particular para el análisis, recopilación y validación de datos anormales y normales.
-- Se estructuró en servidor en flask para realizar la simulación del comportamiento del consumo de un microservicio desde Java.
-- Se utilizaron librerías propias del manejo de datos como Pandas para manipular el archivo .csv y generar las respuestas de datos.
+- Se estructuró un servidor en flask para realizar el consumo de un microservicio desde Java con SpringBoot
+- Se utilizaron librerías propias para realizar el manejo de datos como Pandas, este a su vez nos ayuda a manipular el archivo .csv y generar las respuestas respectivas que se requiriesen.
 
 
 
@@ -46,3 +54,6 @@ El microservicio es lo que le da vida al aplicativo realizando la lógica partic
 - **Python:** 3.0.0
 - **Flask:** 3.0.0
 - **Pandas:** 2.1.3
+- **HTML:** 5.0.0
+- **CSS:** 4.0.0
+- **JavaScript:** ECMAScript 2021
