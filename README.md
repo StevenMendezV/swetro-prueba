@@ -28,12 +28,12 @@ El frontend del aplicativo mostrará 3 botones y 1 barra de búsqueda:
 - **Botón de subida de archivo:** Aquí se sube el archivo CSV de los datos respectivamente
 - **Botón de traer datos anormales:** Al clickear en esta opción el usuario podrá traer los datos que presenten anomalías por medio del consumo de unos endpoints (evidenciando una pantalla de carga mientras se realiza el análisis)
 
-    ```let url = `http://localhost:8080/api```
+    ```'http://swetro-prueba.dev.co/api'```
 
     el aplicativo le resaltará específicamente qué datos son anormales, entre los cuales incluirá 0s, valores nulos y demás.
 - **Botón de traer datos normales:** Al clickear en esta opción el usuario podrá traer los datos normales que se establecen dentro del límite lógico permitido a través de un endpoint (evidenciando una pantalla de carga mientras se realiza el análisis).
 
-    ```let url = `http://localhost:8080/api/normal```
+    ```'http://swetro-prueba.dev.co/api/normal'```
 
 - **Barra de búsqueda:** Aquí se podrá filtrar los datos realizando una búsqueda por medio del id de un usuario en particular para conocer todos sus registros.
 - **Tabla de renderización de datos:** En este apartado se mostrarán los datos obtenidos al realizar la petición.
