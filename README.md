@@ -20,7 +20,7 @@ Para determinar la solución a la prueba primero razoné qué campos en la tabla
 - Frecuencias cardíacas demasiado bajas
 - Ganancias de elevación demasiado alta
 
-Para realizar el análisis de los registros desarrollé un microservicio en Python donde utilicé la librería de Pandas empleando el **método de rango intercuartílico**. 
+Para realizar el análisis de los registros desarrollé un microservicio en Python donde utilicé la librería de Pandas empleando el **método de rango de quantiles**. 
 
 Al graficar el comportamiento de los datos evidencié la presencia de muchos datos outliers en un gráfico de caja que he realizado:
 ![Descripción de la imagen](https://i.imgur.com/MWfI2i6.jpeg)
